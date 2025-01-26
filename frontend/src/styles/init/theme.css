@@ -1,0 +1,15 @@
+@theme {
+    --color-primarywood1: #D8AE7E;
+    --color-primarywood2: #F8C794;
+    --color-primarysky1: #4D869C;
+    --color-primarysky2: #7AB2B2;
+    --color-secondarywood1: #FFE0B5;
+    --color-secondarywood2: #FFF2D7;
+    --color-secondarysky1: #CDE8E5;
+    --color-secondarysky2: #EEF7FF;
+  
+    --font-BonaNova: BonaNova, serif;
+    --font-LibreBaskerville: "LibreBaskerville", serif;
+    --font-Merriweather: "Merriweather", serif;
+    --font-Rubik: "Rubik", serif;
+  }
