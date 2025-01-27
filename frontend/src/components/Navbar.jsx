@@ -23,8 +23,8 @@ function Navbar({Home, Features, Pricing, AboutUs, Contact, showNotification}) {
         </div>
         <div className="relative text-lg flex font-font3 items-center justify-center h-full ml-auto mr-auto left-30 *:ml-3 *:mr-3 *:hover:bg-secondarywood1 *:p-2 *:rounded-md *:bg-secondarywood2 *:cursor-pointer">
             <button onClick={handleScroll(Home)} >Home</button>
-            <button onClick={handleScroll(Pricing)} >Pricing</button>
             <button onClick={handleScroll(Features)} >Features</button>
+            <button onClick={handleScroll(Pricing)} >Pricing</button>
             <button onClick={handleScroll(AboutUs)} >About us</button>
             <button onClick={handleScroll(Contact)} >Contact</button>
         </div>

@@ -31,11 +31,10 @@ function WaitlistDialog({ open, close, showNotification }) {
     <Dialog 
             open={open}
         >
-            <DialogTitle>Subscribe</DialogTitle>
+            <DialogTitle>Sign up to waitlist!</DialogTitle>
             <DialogContent>
                 <DialogContentText>
-                    To subscribe to this website, please enter your email address here. We
-                    will send updates occasionally.
+                    Sign up now! Get to know first about the lunch. Get discount offer for early supporters only!
                     <Alert severity="error" style={{ display: error ? 'block' : 'none' }}>{error}</Alert>
                 </DialogContentText>
                 <TextField
@@ -52,7 +51,7 @@ function WaitlistDialog({ open, close, showNotification }) {
             </DialogContent>
             <DialogActions>
                 <Button onClick={close}>Cancel</Button>
-                <Button type="submit" color="success" variant="contained" onClick={saveToWaitlist} >Subscribe</Button>
+                <Button type="submit" color="success" variant="contained" onClick={saveToWaitlist} >Sign up</Button>
             </DialogActions>
         </Dialog>
   )
