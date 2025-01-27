@@ -1,0 +1,25 @@
+@theme {
+  --color-primarywood1: #D8AE7E;
+  --color-primarywood2: #F8C794;
+  --color-primarysky1: #4D869C;
+  --color-primarysky2: #7AB2B2;
+  --color-secondarywood1: #FFE0B5;
+  --color-secondarywood2: #FFF2D7;
+  --color-secondarysky1: #CDE8E5;
+  --color-secondarysky2: #EEF7FF;
+
+  --font-font1: BonaNova, serif;
+  --font-font2: LibreBaskerville, serif;
+  --font-font3: Merriweather, serif;
+  --font-font4: Rubik, serif;
+
+  --animate-fade-in-scale: fade-in-scale 0.6s forwards;
+  @keyframes fade-in-scale {
+    0% {
+      transform: scale(1) translateY(5%) rotate(0deg);
+    }
+    100% {
+      transform: scale(1.1) translateY(0) rotate(3deg);
+    }
+  }
+}

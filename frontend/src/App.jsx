@@ -1,34 +1,66 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Alert, Box, Snackbar } from '@mui/material'
+import Navbar from './components/Navbar'
+import Home from './pages/Home';
+import Features from './pages/Features';
+import Pricing from './pages/Pricing';
+import AboutUs from './pages/AboutUs';
+import Contact from './pages/Contact';
+import { useRef, useState } from 'react';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const homeRef = useRef(null);
+  const featuresRef = useRef(null);
+  const pricingRef = useRef(null);
+  const aboutUsRef = useRef(null);
+  const contactRef = useRef(null);
+  
+  const [notification, setNotification] = useState({
+    open: false,
+    message: '',
+    severity: 'info',
+  })
+
+  const showNotification = (message, severity = 'info') => {
+    setNotification({
+      open: true,
+      message,
+      severity,
+    });
+
+    // Automatically dismiss after 5 seconds
+    setTimeout(() => {
+      setNotification((prev) => ({ ...prev, open: false }));
+    }, 3000);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <Box className="bg-secondarysky2 w-full">
+      <Navbar 
+      Home={homeRef}
+      Features={featuresRef}
+      Pricing={pricingRef}
+      AboutUs={aboutUsRef}
+      Contact={contactRef}
+      showNotification={showNotification}
+      />
+      <Home ref={homeRef} showNotification={showNotification} />
+      <Features ref={featuresRef} showNotification={showNotification} />
+      <img src="/illustrations/rocket.svg" className="absolute h-60 w-auto mt-40 top-3/4 right-0 mr-10" alt="star" />
+      <Pricing ref={pricingRef} showNotification={showNotification} />
+      <AboutUs ref={aboutUsRef} showNotification={showNotification} />
+      <Contact ref={contactRef} showNotification={showNotification} />
+
+      <Snackbar
+        open={notification.open}
+        anchorOrigin={{ vertical: 'down', horizontal: 'right' }}
+        onClose={() => setNotification((prev) => ({ ...prev, open: false }))}
+      >
+        <Alert severity={notification.severity} variant="filled">
+          {notification.message}
+        </Alert>
+      </Snackbar>
+
+    </Box>
   )
 }
 
