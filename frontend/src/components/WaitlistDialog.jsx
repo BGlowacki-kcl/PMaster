@@ -14,6 +14,13 @@ function WaitlistDialog({ open, close, showNotification }) {
     const saveToWaitlist = async () => {
         const email = document.getElementById('name').value;
         setError(null);
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if(!emailRegex.test(email)){
+            setError("Provide a valid email address!")
+            return;
+        }
+
         try {
             const response = await saveUser(email, setError);
             if(response.success) {

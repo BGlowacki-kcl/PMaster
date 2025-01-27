@@ -1,0 +1,34 @@
+1. Waitlist development:
+
+* Finish about us
+* Finish contact form
+* Make pages responsive
+* Animate each page
+* Host frontend and backend
+* Final testing of waitlist
+* Make a newslatter / add newslatter checkbox to waitlist signup
+
+2. Waitlist marketing
+
+* Create (weekly) posts to LinkedIn
+* Create LinkedIn profile
+* Research on how to gain more customers
+* Create FaceBook posts
+* DM contacts on WhatsApp
+* DM LinkedIn connections
+
+3. Project development
+
+* Finalise all the project's concepts, what exactly works and how
+* Make project requirements for each component
+* Create mind map
+* Create database schema
+* Create user authentication
+* Create backend controlls
+* Create frontend stores for different user interaction
+* Create user frontend 
+* Apply AI to generate stuff
+
+4. Project Marketing before lunch
+
+5. Project continuous marketing 
