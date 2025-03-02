@@ -1,8 +1,9 @@
 import React, { forwardRef, useState } from 'react'
 import sendEmail from '../stores/email.store';
 import { set } from 'mongoose';
+import FormItem from '../components/formItem';
 
-const Contact = forwardRef((props, ref, showNotification) => {
+const Contact = forwardRef(({props, ref, showNotification}) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -11,84 +12,48 @@ const Contact = forwardRef((props, ref, showNotification) => {
   });
   const [status, setStatus] = useState(null);
 
+  const validateEmail = (email) => {
+    const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return regex.test(email);
+  };
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    sendEmail(formData, setStatus, showNotification);
+
+    if(!validateEmail(formData.email)){
+      setStatus('error');
+      showNotification('Please provide a valid email address', 'error');
+      return ;
+    }
+
+    sendEmail(formData, setStatus, showNotification, setFormData);
   };
 
   return (
-    <div className="contact-form-container">
-      <h2>Contact Us</h2>
+    <div ref={ref}>
       
-      {status === 'success' && (
-        <div className="success-message">
-          Thank you for your message! We'll get back to you soon.
-        </div>
-      )}
-      
-      {status === 'error' && (
-        <div className="error-message">
-          Something went wrong. Please try again later.
-        </div>
-      )}
-      
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="name">Name</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        
-        <div className="form-group">
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        
-        <div className="form-group">
-          <label htmlFor="subject">Subject</label>
-          <input
-            type="text"
-            id="subject"
-            name="subject"
-            value={formData.subject}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        
-        <div className="form-group">
-          <label htmlFor="message">Message</label>
-          <textarea
-            id="message"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            rows="5"
-            required
-          ></textarea>
-        </div>
-        
-        <button type="submit" disabled={status === 'sending'}>
+      <form onSubmit={handleSubmit} className="max-w-lg mt-10 mx-auto bg-white p-6 rounded-3xl shadow-lg space-y-4">
+        <h2 className="text-2xl font-semibold text-gray-800 text-center mb-4">Contact Us</h2>
+
+        <FormItem htmlFor="name" name="name" value={formData.name} onChange={handleChange} />
+        <FormItem htmlFor="email" name="email" value={formData.email} onChange={handleChange} />
+        <FormItem htmlFor="subject" name="subject" value={formData.subject} onChange={handleChange} />
+        <FormItem htmlFor="message" name="message" value={formData.message} onChange={handleChange} largeArena={true} />
+
+        <button
+          type="submit" 
+          disabled={status === 'sending'}
+          className={`w-full py-3 text-lg font-medium text-white rounded-lg transition-all duration-300 hover:cursor-pointer
+            ${status === 'sending' ? 'bg-gray-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700'}`}
+        >
           {status === 'sending' ? 'Sending...' : 'Send Message'}
         </button>
       </form>
+
     </div>
   );
 })

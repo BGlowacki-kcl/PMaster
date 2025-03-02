@@ -1,4 +1,4 @@
-const sendEmail = async (emailData, setStatus, showNotification) => {
+const sendEmail = async (emailData, setStatus, showNotification, setFormData) => {
     try {
         setStatus('sending');
         const response = await fetch('/api/email', {

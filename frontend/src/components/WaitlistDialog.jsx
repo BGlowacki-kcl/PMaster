@@ -4,7 +4,9 @@ import saveUser from '../stores/waitlist.store.js';
 
 function WaitlistDialog({ open, close, showNotification }) {
     const [error, setError] = useState(null);
-
+    const [email, setEmail] = useState('');
+    const [newsletter, setNewsletter] = useState(true);
+    
     useEffect(() => {
         if(!open) {
             setError(null);
@@ -12,17 +14,18 @@ function WaitlistDialog({ open, close, showNotification }) {
     }, [open]);
 
     const saveToWaitlist = async () => {
-        const email = document.getElementById('name').value;
         setError(null);
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        console.log(emailRegex.test(email));
+        console.log(email);
         if(!emailRegex.test(email)){
             setError("Provide a valid email address!")
             return;
         }
 
         try {
-            const response = await saveUser(email, setError);
+            const response = await saveUser(email, newsletter);
             if(response.success) {
                 showNotification("Subscribed successfully", "success");
                 close();
@@ -54,8 +57,9 @@ function WaitlistDialog({ open, close, showNotification }) {
                     type="email"
                     fullWidth
                     variant="standard"
+                    onChange={(e) => setEmail(e.target.value)}
                 />
-                <Checkbox id="newsletter" name="newsletter" defaultChecked /> Subscribe to newsletter!
+                <Checkbox id="newsletter" name="newsletter" onChange={(e) => setNewsletter(e.target.checked)} defaultChecked /> Subscribe to newsletter!
             </DialogContent>
             <DialogActions>
                 <Button onClick={close}>Cancel</Button>

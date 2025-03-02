@@ -5,13 +5,13 @@ dotenv.config();
 console.log("env: ",process.env.EMAIL_USER);
 
 const transporter = nodemailer.createTransport({
-    service: 'gmail',  // Use a specific service like 'gmail', 'outlook', etc.
-    host: 'smtp.gmail.com',  // Specific host instead of localhost
+    service: 'gmail',  
+    host: 'smtp.gmail.com', 
     port: 587,
-    secure: false,  // true for 465, false for other ports
+    secure: false,
     auth: {
-      user: process.env.EMAIL_USER,  // Your Gmail address
-      pass: process.env.EMAIL_PASS   // Your app password for Gmail
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS 
     }
   });
 
