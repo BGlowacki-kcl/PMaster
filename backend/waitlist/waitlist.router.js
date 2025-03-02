@@ -1,5 +1,5 @@
 import express from "express";
-import { saveUser } from "../controllers/waitlist.controller.js";
+import { saveUser } from "./waitlist.controller.js";
 
 const router = express.Router();
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Alert, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField } from '@mui/material';
+import { Alert, Button, Checkbox, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField } from '@mui/material';
 import saveUser from '../stores/waitlist.store.js';
 
 function WaitlistDialog({ open, close, showNotification }) {
@@ -55,6 +55,7 @@ function WaitlistDialog({ open, close, showNotification }) {
                     fullWidth
                     variant="standard"
                 />
+                <Checkbox id="newsletter" name="newsletter" defaultChecked /> Subscribe to newsletter!
             </DialogContent>
             <DialogActions>
                 <Button onClick={close}>Cancel</Button>

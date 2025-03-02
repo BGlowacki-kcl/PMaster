@@ -5,7 +5,7 @@
 * Animate each page
 * Host frontend and backend
 * Final testing of waitlist
-* Make a newslatter / add newslatter checkbox to waitlist signup
+* Update icon and title for the page
 
 2. Waitlist marketing
 

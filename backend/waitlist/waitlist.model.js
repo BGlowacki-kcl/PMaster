@@ -6,6 +6,10 @@ const waitlistSchema = new mongoose.Schema(
 			type: String,
 			required: true,
 		},
+		newsletter: {
+			type: Boolean,
+			default: false,
+		},
 	},
 	{
 		timestamps: true, // createdAt, updatedAt

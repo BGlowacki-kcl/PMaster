@@ -1,4 +1,4 @@
-const saveUser = async (email) => {
+const saveUser = async (email, newslatter = false) => {
     if(!email) {
         return { success: false, message: "Please provide email" };
     }
@@ -8,7 +8,7 @@ const saveUser = async (email) => {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({"email": email}),
+            body: JSON.stringify({"email": email, "newsletter": newslatter}),
         });
         if (response.ok) {
             const data = await response.json();

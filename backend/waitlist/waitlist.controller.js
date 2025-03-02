@@ -1,8 +1,7 @@
-import mongoose from "mongoose";
-import Waitlist from "../models/waitlist.model.js";
+import Waitlist from "./waitlist.model.js";
 
 export const saveUser = async (req, res) => {
-    const { email } = req.body;
+    const { email, newsletter } = req.body;
 
     if (!email) {
         return res.status(400).json({ success: false, message: "Please provide email" });
@@ -13,7 +12,7 @@ export const saveUser = async (req, res) => {
         if(existingUser) {
             return res.status(400).json({ success: false, message: "User already signed up!" });
         }
-        const newUser = new Waitlist({ email });
+        const newUser = new Waitlist({ email, newsletter });
         await newUser.save();
         res.status(200).json({ success: true, data: newUser });
     } catch(error) {
