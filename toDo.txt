@@ -1,6 +1,5 @@
 1. Waitlist development:
 
-* Finish contact form
 * Make pages responsive
 * Animate each page
 * Host frontend and backend
