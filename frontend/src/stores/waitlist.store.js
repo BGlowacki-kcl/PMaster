@@ -1,5 +1,3 @@
-import { set } from "mongoose";
-
 const saveUser = async (email) => {
     if(!email) {
         return { success: false, message: "Please provide email" };

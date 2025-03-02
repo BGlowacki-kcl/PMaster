@@ -1,6 +1,5 @@
 1. Waitlist development:
 
-* Finish about us
 * Finish contact form
 * Make pages responsive
 * Animate each page
