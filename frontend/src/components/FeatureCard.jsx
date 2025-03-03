@@ -3,7 +3,7 @@ import React from 'react'
 
 const FeatureCard = ({ img, text, title }) => {
   return (
-    <Card className='hover:animate-fade-in-scale h-4/5 w-auto p-3' sx={{ backgroundColor: "#F8C794;", borderRadius: "14px"}}>
+    <Card className='hover:animate-fade-in-scale h-full xl:w-90 w-72 p-3' sx={{ backgroundColor: "#F8C794;", borderRadius: "14px"}}>
         <CardMedia>
             <img src={img} className="h-40 shadow-md rounded-lg border-2 border-secondarysky2 ml-auto mr-auto w-auto" alt="schedule" />
         </CardMedia>

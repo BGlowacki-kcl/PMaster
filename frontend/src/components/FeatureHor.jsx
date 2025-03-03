@@ -8,7 +8,7 @@ const FeatureHor = ({title, text, img, isLeft}) => {
         <img key="img" src={img} className="ml-20 h-50 w-auto" />,
         <div key="div" className="flex flex-col w-1/2 ml-auto ">
             <div className='w-4/5 text-3xl font-font2 text-primarywood1 mb-3'> {title} </div>
-            <div className='w-4/5 text-xl font-font4 text-primarysky1 ml-4' > {text} </div>
+            <div className='w-4/5 min-w-72 text-xl font-font4 text-primarysky1 ml-4' > {text} </div>
         </div>
         ].sort(() => isLeft ? 1 : -1)}
     </div>

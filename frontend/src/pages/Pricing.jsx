@@ -4,9 +4,9 @@ import PricingCard from '../components/PricingCard'
 
 const Pricing = forwardRef((props, ref, showNotification) => {
   return (
-    <div ref={ref} className="h-screen justify-center items-center w-full flex flex-col bg-secondarywood2">
+    <div ref={ref} className="min-h-screen justify-center items-center w-full flex flex-col bg-secondarywood2">
     <p className="tracking-widest mb-auto mt-10 text-5xl font-font3 text-bold text-fuchsia-900">PRICING</p>
-    <div className="flex flex-row gap-20 justify-center items-center mb-10">
+    <div className="flex flex-row gap-2 sm:gap-20 justify-center items-center mb-10">
       <PricingCard 
         img="/illustrations/free.png"
         title="Free plan includes"

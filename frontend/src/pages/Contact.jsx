@@ -1,9 +1,8 @@
 import React, { forwardRef, useState } from 'react'
 import sendEmail from '../stores/email.store';
-import { set } from 'mongoose';
 import FormItem from '../components/formItem';
 
-const Contact = forwardRef(({props, ref, showNotification}) => {
+const Contact = forwardRef(({showNotification, ...props}, ref) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',

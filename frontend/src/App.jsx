@@ -45,7 +45,7 @@ function App() {
       />
       <Home ref={homeRef} showNotification={showNotification} />
       <Features ref={featuresRef} showNotification={showNotification} />
-      <img src="/illustrations/rocket.svg" className="absolute h-60 w-auto mt-40 top-3/4 right-0 mr-10" alt="star" />
+      <img src="/illustrations/rocket.svg" className="absolute h-60 w-auto mt-40 top-3/4 right-0 mr-10 opacity-0 lg:opacity-100" alt="star" />
       <Pricing ref={pricingRef} showNotification={showNotification} />
       <AboutUs ref={aboutUsRef} showNotification={showNotification} />
       <Contact ref={contactRef} showNotification={showNotification} />

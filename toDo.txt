@@ -4,7 +4,6 @@
 * Animate each page
 * Host frontend and backend
 * Final testing of waitlist
-* Update icon and title for the page
 
 2. Waitlist marketing
 

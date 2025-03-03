@@ -13,18 +13,33 @@ const Home = forwardRef((props, ref, showNotification) => {
   }
 
   return (
-    <Stack ref={ref} className='h-screen flex bg-secondarysky1'>
+    <Stack ref={ref} className='flex flex-col bg-secondarysky1 pl-10 pr-10 pb-10 pt-2 min-h-screen'>
       
       <WaitlistDialog open={waitlist} close={closeWaitlist} showNotification={showNotification} />
-        <Box className="flex flex-col absolute left-1/7 mt-10 items-center justify-center w-1/2">
-            <p className="font-font2 text-5xl font-bold" >The only Project management tool you will ever need!</p>
-        </Box>
-        <Box className="absolute h-full w-full">
-          <img src="/illustrations/team_main.svg" className="absolute right-0 mr-10 top-1/4 h-80 w-auto" alt="schedule" />
-          <p className="absolute font-font4 w-2/5 text-xl ml-10 bg-primarywood2/20 p-7 rounded-sm left-1/7 top-1/4 text-primarysky1" >Take the stress out of project management! Our smart scheduler creates tailored roadmaps, understands your team’s skills, and optimizes every step to success. Focus on what matters while we handle the planning. From task alignment to goal achievement, everything is simplified. Try Krono today and make your projects seamless, efficient, and worry-free. Let’s get things done—together!</p>
-          <button onClick={showWaitlist} className="rounded-full cursor-pointer hover:shadow hover:bg-primarywood1 h-12 text-bold font-font2 text-xl pl-4 pr-4 absolute bottom-1/4 left-1/3 bg-primarywood1/80" >Sign up to Waitlist!</button>
-          <img src="/illustrations/line.png" className="h-80 w-auto absolute bottom-1/6 left-1/12" />
-        </Box>
+      <Box className="flex flex-col relative left-1/7 items-center mt-10 mb-4 justify-center w-1/2">
+          <p className="font-font2 text-5xl font-bold" >The only Project management tool you will ever need!</p>
+      </Box>
+      <Box className="relative flex flex-col lg:flex-row w-full mt-2 mb-auto">
+        <div className="relative flex flex-col space-y-4 items-end mt-8">
+
+          <p className="relative min-w-28 font-font4 text-xl ml-8 lg:ml-12 xl:ml-32 mr-4 bg-primarywood2/20 p-7 rounded-sm text-primarysky1">
+            Take the stress out of project management! Our smart scheduler creates tailored roadmaps, understands your team’s skills, and optimizes every step to success. Focus on what matters while we handle the planning. From task alignment to goal achievement, everything is simplified. Try Krono today and make your projects seamless, efficient, and worry-free. Let’s get things done—together!
+          </p>
+          <div className='flex flex-row items-center w-full space-x-4 ml-8 lg:ml-12 xl:ml-32'>
+            <img src="/illustrations/line.png" className="h-10 w-auto self-start" />
+
+            <button
+              onClick={showWaitlist}
+              className="rounded-full min-w-48 cursor-pointer hover:shadow hover:bg-primarywood1 ml-auto mr-20 h-12 text-bold font-font2 text-xl px-6 bg-primarywood1/80"
+            >
+              Sign up to Waitlist!
+            </button>
+          </div>
+        </div>
+
+        <img src="/illustrations/team_main.svg" className="relative mr-16 md:mr-10 lg:mr-0 md:mt-0 mt-20 ml-auto max-h-48 md:max-h-60 lg:max-h-72 xl:max-h-80 w-full" alt="schedule" />
+        
+      </Box>
 
     </Stack>
   )

@@ -6,13 +6,13 @@ import FeatureHor from '../components/FeatureHor';
 const Features = forwardRef((props, ref, showNotification) => {
   return (
     <>
-      <Stack ref={ref} className="h-screen justify-center items-center w-full relative flex">
-        <p className="tracking-widest text-5xl font-font3 text-bold text-fuchsia-900">FEATURES</p>
-        <div className="grid grid-cols-1 md:grid-cols-3 ml-30 mr-30 gap-20 h-3/4 justify-center items-center">
+      <Stack ref={ref} className="min-h-screen justify-center items-center w-full relative flex">
+        <p className="tracking-widest text-5xl font-font3 text-bold text-fuchsia-900 mb-3 mt-5">FEATURES</p>
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 ml-5 mr-5 md:ml-30 md:mr-30 gap-20 h-3/4 justify-center items-center">
           <FeatureCard
             img="/illustrations/schedule.png"
             title="Task scheduling"
-            text="Identify potential challenges before they arise with Krono’s advanced risk analysis. Pinpoint vulnerabilities and receive actionable insights to mitigate risks effectively. Stay one step ahead to ensure your project’s success."
+            text="Let Krono do the heavy lifting by assigning tasks intelligently based on team members’ skills and availability. Maximize productivity and ensure the right people are working on the right tasks. Watch your team thrive with optimized workloads."
           />
 
           <FeatureCard
@@ -29,7 +29,7 @@ const Features = forwardRef((props, ref, showNotification) => {
 
         </div>
       </Stack>
-      <Stack className="h-screen grid grid-rows-3 gap-10 justify-center items-center w-full relative">
+      <Stack className="min-h-screen grid grid-rows-3 mb-10 mt-10 lg:mt-0 gap-10 justify-center items-center w-full relative">
         <FeatureHor
           title="Save Time, Maximize Impact"
           text="Stop juggling endless spreadsheets and meetings. Krono automates planning, simplifies communication, and reduces wasted time, so you can focus on progress."
