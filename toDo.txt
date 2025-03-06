@@ -1,14 +1,11 @@
 1. Waitlist development:
 
-* Make pages responsive
 * Animate each page
-* Host frontend and backend
 * Final testing of waitlist
 
 2. Waitlist marketing
 
 * Create (weekly) posts to LinkedIn
-* Create LinkedIn profile
 * Research on how to gain more customers
 * Create FaceBook posts
 * DM contacts on WhatsApp
