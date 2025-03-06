@@ -1,34 +1,27 @@
-const saveUser = async (email, newsletter = false) => {
-    if (!email) {
-        return { success: false, message: "Please provide an email" };
+const saveUser = async (email, newslatter = false) => {
+    if(!email) {
+        return { success: false, message: "Please provide email" };
     }
-
     try {
-        const response = await fetch(`${import.meta.env.VITE_API_URL || ""}/api/waitlist`, {
+        const response = await fetch('/api/waitlist/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ email, newsletter }),
+            body: JSON.stringify({"email": email, "newsletter": newslatter}),
         });
-
-        // Try to parse JSON safely
-        let data;
+        if(!response.ok) {
+            return { success: false, message: "Unexpected server response" };
+        }
         try {
-            data = await response.json();
-        } catch (jsonError) {
-            return { success: false, message: "Invalid response from server" };
+            const data = await response.json();
+            return data;
+        } catch (e) {
+            return { success: false, message: "Wrong format of data"};
         }
-
-        if (!response.ok) {
-            return { success: false, message: data.message || "Something went wrong" };
-        }
-
-        return data;
     } catch (error) {
-        console.error("Error saving user:", error);
-        return { success: false, message: "Network error. Please try again." };
+        return { success: false, message: "Internal server error" };
     }
-};
+}
 
 export default saveUser;
