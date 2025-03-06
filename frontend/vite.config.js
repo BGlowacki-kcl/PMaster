@@ -11,7 +11,7 @@ export default defineConfig({
   server:{
     proxy: {
       '/api': {
-        target: 'https://www.krono.it.com',
+        target: 'https://www.krono.it.com:5000',
       }
     }
   },
