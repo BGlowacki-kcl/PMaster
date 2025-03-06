@@ -4,7 +4,7 @@ import React from 'react'
 const FeatureCard = ({ img, text, title }) => {
   return (
     <Card 
-      className='hover:animate-fade-in-scale flex flex-col justify-between h-full min-h-[350px] sm:min-h-[400px] p-3' 
+      className='hover:animate-fade-in-scale flex flex-col justify-between h-full min-h-[450px] sm:min-h-[500px] p-3' 
       sx={{ backgroundColor: "#F8C794;", borderRadius: "14px" }}
     >
       <CardMedia>

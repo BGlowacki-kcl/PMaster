@@ -26,13 +26,13 @@ const Home = forwardRef((props, ref, showNotification) => {
             Take the stress out of project management! Our smart scheduler creates tailored roadmaps, understands your team’s skills, and optimizes every step to success. Focus on what matters while we handle the planning. From task alignment to goal achievement, everything is simplified. Try Krono today and make your projects seamless, efficient, and worry-free. Let’s get things done—together!
           </p>
           <div className='flex flex-row items-center w-full space-x-4 ml-8 lg:ml-12 xl:ml-32'>
-            <img src="/illustrations/line.png" className="h-10 w-auto self-start" />
+            <img src="/illustrations/line.png" className="h-10 md:block hidden w-auto self-start" />
 
             <button
               onClick={showWaitlist}
-              className="z-10 rounded-full min-w-[180px] cursor-pointer hover:shadow hover:bg-primarywood1 ml-auto mr-20 h-12 text-bold font-font2 text-xl px-6 bg-primarywood1/80"
+              className="z-10 rounded-full min-w-[250px] cursor-pointer hover:shadow hover:bg-primarywood1 ml-auto mr-2 md:mr-20 h-[140%] text-bold font-font2 text-xl px-6 bg-primarywood1/80"
             >
-              Waitlist!
+              Sign up to Waitlist!
             </button>
           </div>
         </div>
