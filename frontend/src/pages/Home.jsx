@@ -30,9 +30,9 @@ const Home = forwardRef((props, ref, showNotification) => {
 
             <button
               onClick={showWaitlist}
-              className="z-10 rounded-full min-w-48 cursor-pointer hover:shadow hover:bg-primarywood1 ml-auto mr-20 h-12 text-bold font-font2 text-xl px-6 bg-primarywood1/80"
+              className="z-10 rounded-full min-w-[16px] cursor-pointer hover:shadow hover:bg-primarywood1 ml-auto mr-20 h-12 text-bold font-font2 text-xl px-6 bg-primarywood1/80"
             >
-              Sign up to Waitlist!
+              Waitlist!
             </button>
           </div>
         </div>

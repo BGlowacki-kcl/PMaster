@@ -3,15 +3,23 @@ import React from 'react'
 
 const FeatureHor = ({title, text, img, isLeft}) => {
   return (
-    <div className={`flex flex-row h-1/4 w-3/4 ${isLeft ? "mr-30" : "ml-30"}`} >
-        {[
-        <img key="img" src={img} className="ml-20 h-[30vw] md:h-50 w-auto" />,
-        <div key="div" className="flex flex-col w-1/2 ml-auto ">
-            <div className='w-4/5 text-[2.2vw] font-font2 text-primarywood1 mb-3'> {title} </div>
-            <div className='w-4/5 min-w-72 text-[16px] lg:text-[1.5vw] font-font4 text-primarysky1 ml-4' > {text} </div>
-        </div>
-        ].sort(() => isLeft ? 1 : -1)}
-    </div>
+  <div className={`flex flex-col-reverse ${isLeft ? "md:flex-row-reverse" : "md:flex-row"} items-center h-auto w-full md:w-3/4 ${isLeft ? "md:mr-30" : "md:ml-30"} gap-6`}>
+      <img 
+          src={img} 
+          className="w-[70%] md:w-auto max-w-[400px] h-auto md:h-[50vh] object-contain"
+          alt="Image"
+      />,
+      
+      <div className="flex flex-col w-4/5 md:w-1/2 text-center md:text-left">
+          <div className="w-full md:w-4/5 text-[6vw] md:text-[2.2vw] font-font2 text-primarywood1 mb-3">
+              {title}
+          </div>
+          <div className="w-full md:w-4/5 min-w-52 md:min-w-72 text-[4vw] md:text-[1.5vw] font-font4 text-primarysky1">
+              {text}
+          </div>
+      </div>
+  </div>
+
   )
 }
 

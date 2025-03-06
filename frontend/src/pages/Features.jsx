@@ -8,7 +8,7 @@ const Features = forwardRef((props, ref, showNotification) => {
     <>
       <Stack ref={ref} className="min-h-screen justify-center items-center w-full relative flex">
         <p className="tracking-widest text-5xl font-font3 text-bold text-fuchsia-900 mb-3 mt-5">FEATURES</p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 ml-5 mr-5 md:ml-30 md:mr-30 justify-center items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 h-fit lg:grid-cols-3 gap-4 ml-5 mr-5 md:ml-30 md:mr-30 justify-center items-center">
           <FeatureCard
             img="/illustrations/schedule.png"
             title="Task scheduling"
