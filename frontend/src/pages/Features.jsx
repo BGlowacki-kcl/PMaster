@@ -8,7 +8,7 @@ const Features = forwardRef((props, ref, showNotification) => {
     <>
       <Stack ref={ref} className="min-h-screen justify-center items-center w-full relative flex">
         <p className="tracking-widest text-5xl font-font3 text-bold text-fuchsia-900 mb-3 mt-5">FEATURES</p>
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 ml-5 mr-5 md:ml-30 md:mr-30 gap-20 h-3/4 justify-center items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 ml-5 mr-5 md:ml-30 md:mr-30 justify-center items-center">
           <FeatureCard
             img="/illustrations/schedule.png"
             title="Task scheduling"
@@ -29,7 +29,7 @@ const Features = forwardRef((props, ref, showNotification) => {
 
         </div>
       </Stack>
-      <Stack className="min-h-screen grid grid-rows-3 mb-10 mt-10 lg:mt-0 gap-10 justify-center items-center w-full relative">
+      <Stack className="min-h-screen grid grid-rows-3 mb-10 mt-20 lg:mt-10 gap-10 justify-center items-center w-full relative">
         <FeatureHor
           title="Save Time, Maximize Impact"
           text="Stop juggling endless spreadsheets and meetings. Krono automates planning, simplifies communication, and reduces wasted time, so you can focus on progress."

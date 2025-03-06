@@ -14,7 +14,6 @@ const Home = forwardRef((props, ref, showNotification) => {
 
   return (
     <Stack ref={ref} className='flex flex-col bg-secondarysky1 pl-10 pr-10 pb-10 pt-2 min-h-screen'>
-      <div className='bg-white h-96 w-96 relative'></div>
       
       <WaitlistDialog open={waitlist} close={closeWaitlist} showNotification={showNotification} />
       <Box className="flex flex-col relative left-1/7 items-center mt-10 mb-4 justify-center lg:w-1/2 md:w-2/3 w-full">
@@ -31,7 +30,7 @@ const Home = forwardRef((props, ref, showNotification) => {
 
             <button
               onClick={showWaitlist}
-              className="rounded-full min-w-48 cursor-pointer hover:shadow hover:bg-primarywood1 ml-auto mr-20 h-12 text-bold font-font2 text-xl px-6 bg-primarywood1/80"
+              className="z-10 rounded-full min-w-48 cursor-pointer hover:shadow hover:bg-primarywood1 ml-auto mr-20 h-12 text-bold font-font2 text-xl px-6 bg-primarywood1/80"
             >
               Sign up to Waitlist!
             </button>

@@ -3,7 +3,7 @@ import React from 'react'
 
 const PricingCard = ({img, title, benefits, subText}) => {
   return (
-    <div className="h-full w-64 md:w-72 lg:w-2/5 items-center bg-secondarysky1 rounded-md border-2 border-black shadow-xl flex flex-col p-3" >
+    <div className="h-full w-64 md:w-72 lg:w-full items-center bg-secondarysky1 rounded-md border-2 border-black shadow-xl flex flex-col p-3" >
         <img src={img} className='shadow-2xl rounded-md border-2 w-4/5' />
         <p className='mt-4 text-3xl font-font2' >{title}:</p>
         <ul className="ml-4 mr-4 mt-3">
