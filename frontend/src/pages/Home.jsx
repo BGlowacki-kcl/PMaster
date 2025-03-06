@@ -14,6 +14,7 @@ const Home = forwardRef((props, ref, showNotification) => {
 
   return (
     <Stack ref={ref} className='flex flex-col bg-secondarysky1 pl-10 pr-10 pb-10 pt-2 min-h-screen'>
+      <div className='bg-black h-96 w-96 relative'></div>
       
       <WaitlistDialog open={waitlist} close={closeWaitlist} showNotification={showNotification} />
       <Box className="flex flex-col relative left-1/7 items-center mt-10 mb-4 justify-center lg:w-1/2 md:w-2/3 w-full">
