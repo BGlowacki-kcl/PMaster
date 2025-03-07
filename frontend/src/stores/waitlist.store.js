@@ -3,16 +3,18 @@ const saveUser = async (email, newslatter = false) => {
         return { success: false, message: "Please provide email" };
     }
     try {
-        const response = await fetch('/api/waitlist/', {
+        const response = await fetch('/api/waitlist', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({"email": email, "newsletter": newslatter}),
         });
-        if(!response.ok) {
-            return { success: false, message: "Unexpected server response" };
-        }
+        console.log(response);
+        // if(!response.ok) {
+        //     return { success: false, message: "Unexpected server response" };
+        // }
+        
         try {
             const data = await response.json();
             return data;

@@ -17,8 +17,6 @@ function WaitlistDialog({ open, close, showNotification }) {
         setError(null);
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        console.log(emailRegex.test(email));
-        console.log(email);
         if(!emailRegex.test(email)){
             setError("Provide a valid email address!")
             return;
@@ -33,8 +31,6 @@ function WaitlistDialog({ open, close, showNotification }) {
                 setError(response.message);
             }
         } catch (error) {
-            console.log(error);
-            console.error(error);
             setError("Internal server error");
         }
     }
@@ -46,7 +42,9 @@ function WaitlistDialog({ open, close, showNotification }) {
         <DialogTitle>Sign up to waitlist!</DialogTitle>
         <DialogContent>
             <DialogContentText>
-                Sign up now! Get to know first about the lunch. Get discount offer for early supporters only!
+                <span>
+                    Sign up now! Get to know first about the lunch. Get discount offer for early supporters only!
+                </span>
                 <Alert severity="error" style={{ display: error ? 'block' : 'none' }}>{error}</Alert>
             </DialogContentText>
             <TextField
