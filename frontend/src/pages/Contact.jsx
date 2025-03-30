@@ -1,20 +1,18 @@
 import React, { forwardRef, useState } from 'react'
 import sendEmail from '../stores/email.store';
 import FormItem from '../components/formItem';
+import { useNotification } from '../contexts/Notification.context';
 
-const Contact = forwardRef(({showNotification, ...props}, ref) => {
+const Contact = forwardRef(({ ...props}, ref) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
     message: ''
   });
-  const [status, setStatus] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-  const validateEmail = (email) => {
-    const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    return regex.test(email);
-  };
+  const showNotification = useNotification();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -22,14 +20,15 @@ const Contact = forwardRef(({showNotification, ...props}, ref) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
-    if(!validateEmail(formData.email)){
-      setStatus('error');
-      showNotification('Please provide a valid email address', 'error');
-      return ;
-    }
+    const response = await sendEmail(formData);
+    showNotification(response.success ? "Message sent successfully!" : response.error, response.success ? "success" : "error");
+    
+    if(response.success) 
+      setFormData({ name: '', email: '', subject: '', message: '' });
 
-    sendEmail(formData, setStatus, showNotification, setFormData);
+    setLoading(false);
   };
 
   return (
@@ -45,11 +44,11 @@ const Contact = forwardRef(({showNotification, ...props}, ref) => {
 
         <button
           type="submit" 
-          disabled={status === 'sending'}
+          disabled={loading}
           className={`w-full py-3 text-lg font-medium text-white rounded-lg transition-all duration-300 hover:cursor-pointer
-            ${status === 'sending' ? 'bg-gray-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700'}`}
+            ${loading ? 'bg-gray-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700'}`}
         >
-          {status === 'sending' ? 'Sending...' : 'Send Message'}
+          {loading ? 'Sending...' : 'Send Message'}
         </button>
       </form>
 
