@@ -1,10 +1,6 @@
 import { Box } from '@mui/material'
-import Navbar from '../components/Navbar'
-import Home from './Home';
-import Features from './Features';
-import Pricing from './Pricing';
-import AboutUs from './AboutUs';
-import Contact from './Contact';
+import Navbar from '../components/landingPage/Navbar'
+import { Home, Features, Pricing, AboutUs, Contact } from '../components/pages';
 import { useRef } from 'react';
 
 const Landing = ({ showNotification }) => {

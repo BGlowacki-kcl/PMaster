@@ -1,9 +1,10 @@
 import { Stack, Box } from '@mui/material';
 import React, { forwardRef, useState } from 'react';
-import WaitlistDialog from '../components/WaitlistDialog';
+import WaitlistDialog from '../landingPage/WaitlistDialog';
 
-const Home = forwardRef((props, ref, showNotification) => {
+const Home = forwardRef((props, ref) => {
   const[waitlist, setWaitlist] = useState(false);
+  const showNotification = useNotification();
 
   const showWaitlist = () => {
     setWaitlist(true);

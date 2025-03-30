@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { Alert, Button, Checkbox, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField } from '@mui/material';
-import saveUser from '../stores/waitlist.store.js';
+import saveUser from '../../stores/waitlist.store.js';
+import { useNotification } from '../contexts/Notification.context.jsx';
 
-function WaitlistDialog({ open, close, showNotification }) {
+function WaitlistDialog({ open, close }) {
     const [error, setError] = useState(null);
     const [email, setEmail] = useState('');
     const [newsletter, setNewsletter] = useState(true);
+
+    const showNotification = useNotification();
     
     useEffect(() => {
         if(!open) {
@@ -15,25 +18,23 @@ function WaitlistDialog({ open, close, showNotification }) {
 
     const saveToWaitlist = async () => {
         setError(null);
-
+      
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if(!emailRegex.test(email)){
-            setError("Provide a valid email address!")
-            return;
+        if (!emailRegex.test(email)) {
+          setError("Provide a valid email address!");
+          return;
         }
+      
+        const response = await saveUser(email, newsletter);
 
-        try {
-            const response = await saveUser(email, newsletter);
-            if(response.success) {
-                showNotification("Subscribed successfully", "success");
-                close();
-            } else {
-                setError(response.message);
-            }
-        } catch (error) {
-            setError("Internal server error");
+        if (response.success) {
+          showNotification("Subscribed successfully", "success");
+          close();
+        } else {
+          setError(response.error);
         }
-    }
+      };
+      
 
   return (
     <Dialog 
