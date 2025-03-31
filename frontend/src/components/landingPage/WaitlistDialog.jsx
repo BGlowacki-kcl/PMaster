@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Alert, Button, Checkbox, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField } from '@mui/material';
 import saveUser from '../../stores/waitlist.store.js';
-import { useNotification } from '../contexts/Notification.context.jsx';
+import { useNotification } from '../../hooks/Notification.context.jsx';
 
 function WaitlistDialog({ open, close }) {
     const [error, setError] = useState(null);
