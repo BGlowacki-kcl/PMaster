@@ -12,7 +12,7 @@ const FormItem = ({ htmlFor, name, value, onChange, largeArena = false }) => {
       
       {largeArena ? (
         <textarea
-          id={name}
+          id={name} 
           name={name}
           value={value}
           onChange={onChange}
