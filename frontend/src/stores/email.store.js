@@ -1,25 +1,24 @@
-const sendEmail = async (emailData, setStatus, showNotification, setFormData) => {
-    try {
-        setStatus('sending');
-        const response = await fetch('/api/email', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(emailData),
-        });
-        
-        if (!response.ok) {
-          throw new Error('Failed to send message');
-        }
-        setStatus('success');
-        setFormData({ name: '', email: '', subject: '', message: '' });
-        showNotification('Message sent successfully!', 'success');
-      } catch (error) {
-        console.error('Error sending email:', error);
-        setStatus('error');
-        showNotification('Something went wrong. Please try again later.', 'error');
-      }
-}
+import { apiRequest } from "./helpers";
+
+/**
+ * Sends an email using the API.
+ * @param {Object} emailData - The email data to send including recipient, subject, name, and body.
+ * @returns {Promise<Object>} - The API response.
+ */
+const sendEmail = async (emailData) => {
+  if (!validateEmail(emailData.email)) {
+    return { success: false, error: "Invalid email address" };
+  }
+
+  return await apiRequest("/api/email", {
+    method: "POST",
+    body: emailData,
+  });
+};
+
+const validateEmail = (email) => {
+  const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  return regex.test(email);
+};
 
 export default sendEmail;

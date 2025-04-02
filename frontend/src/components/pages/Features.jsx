@@ -1,9 +1,9 @@
 import { Stack } from '@mui/material';
 import React, { forwardRef } from 'react';
-import FeatureCard from '../components/FeatureCard';
-import FeatureHor from '../components/FeatureHor';
+import FeatureCard from '../landingPage/FeatureCard';
+import FeatureHor from '../landingPage/FeatureHor';
 
-const Features = forwardRef((props, ref, showNotification) => {
+const Features = forwardRef((props, ref) => {
   return (
     <>
       <Stack ref={ref} className="min-h-screen justify-center items-center w-full relative flex">

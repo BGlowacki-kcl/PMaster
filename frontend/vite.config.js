@@ -8,11 +8,10 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  server:{
+  server: {
     proxy: {
       '/api': {
-        //target: 'http://localhost:5000'
-        target: 'https://krono.it.com',
+        target: process.env.VITE_API_URL || 'http://localhost:5000',
       }
     }
   },

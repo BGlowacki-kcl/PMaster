@@ -1,8 +1,7 @@
-import { Stack } from '@mui/material'
 import React, { forwardRef } from 'react'
-import PricingCard from '../components/PricingCard'
+import PricingCard from '../landingPage/PricingCard'
 
-const Pricing = forwardRef((props, ref, showNotification) => {
+const Pricing = forwardRef((props, ref) => {
   return (
     <div ref={ref} className="min-h-screen justify-center items-center w-full flex flex-col bg-secondarywood2">
     <p className="tracking-widest mb-auto mt-10 text-5xl font-font3 text-bold text-fuchsia-900">PRICING</p>

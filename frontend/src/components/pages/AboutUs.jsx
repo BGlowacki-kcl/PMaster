@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react'
-import AboutMeComponent from '../components/AboutMeComponent'
+import AboutMeComponent from '../landingPage/AboutMeComponent'
 
-const AboutUs = forwardRef((props, ref, showNotification) => {
+const AboutUs = forwardRef((props, ref) => {
   return (
     <div ref={ref} className="min-h-screen bg-secondarywood1" >
       <AboutMeComponent 

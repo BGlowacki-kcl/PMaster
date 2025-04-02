@@ -1,67 +1,57 @@
-import { Alert, Box, Snackbar } from '@mui/material'
-import Navbar from './components/Navbar'
-import Home from './pages/Home';
-import Features from './pages/Features';
-import Pricing from './pages/Pricing';
-import AboutUs from './pages/AboutUs';
-import Contact from './pages/Contact';
-import { useRef, useState } from 'react';
+/**
+ * @fileoverview Main application component that handles routing configuration
+ * and route rendering. This component serves as the top-level router for the
+ * application, managing navigation between different pages.
+ * 
+ * @module App
+ */
 
+import { Route, Routes } from 'react-router-dom';
+import Landing from './pages/Landing';
+
+/**
+ * Main application component that initializes routing and renders routes.
+ * 
+ * @component
+ * @returns {JSX.Element} The main application component with configured routes
+ */
 function App() {
-  const homeRef = useRef(null);
-  const featuresRef = useRef(null);
-  const pricingRef = useRef(null);
-  const aboutUsRef = useRef(null);
-  const contactRef = useRef(null);
-  
-  const [notification, setNotification] = useState({
-    open: false,
-    message: '',
-    severity: 'info',
-  })
-
-  const showNotification = (message, severity = 'info') => {
-    setNotification({
-      open: true,
-      message,
-      severity,
-    });
-
-    // Automatically dismiss after 5 seconds
-    setTimeout(() => {
-      setNotification((prev) => ({ ...prev, open: false }));
-    }, 3000);
-  };
+  const routeConfig = defineRouteConfig();
 
   return (
-    <Box className="bg-secondarysky2 w-full">
-      <Navbar 
-      Home={homeRef}
-      Features={featuresRef}
-      Pricing={pricingRef}
-      AboutUs={aboutUsRef}
-      Contact={contactRef}
-      showNotification={showNotification}
-      />
-      <Home ref={homeRef} showNotification={showNotification} />
-      <Features ref={featuresRef} showNotification={showNotification} />
-      <img src="/illustrations/rocket.svg" className="absolute h-60 w-auto mt-40 top-3/4 right-0 mr-10 opacity-0 lg:opacity-100 z-0" alt="star" />
-      <Pricing ref={pricingRef} showNotification={showNotification} />
-      <AboutUs ref={aboutUsRef} showNotification={showNotification} />
-      <Contact ref={contactRef} showNotification={showNotification} />
-
-      <Snackbar
-        open={notification.open}
-        anchorOrigin={{ vertical: 'down', horizontal: 'right' }}
-        onClose={() => setNotification((prev) => ({ ...prev, open: false }))}
-      >
-        <Alert severity={notification.severity} variant="filled">
-          {notification.message}
-        </Alert>
-      </Snackbar>
-
-    </Box>
-  )
+    <Routes>
+      {renderRoutes(routeConfig)}
+    </Routes>
+  );
 }
 
-export default App
+/**
+ * Defines the routing configuration for the application.
+ * Contains all available routes and their corresponding components.
+ * 
+ * @returns {Array<{path: string, element: JSX.Element}>} Array of route configurations
+ */
+function defineRouteConfig() {
+  return [
+    { path: "/", element: <Landing /> },
+  ]
+}
+
+/**
+ * Renders Route components based on the provided route configuration.
+ * Maps through the route config array and creates corresponding Route elements.
+ * 
+ * @param {Array<{path: string, element: JSX.Element}>} routeConfig - Array of route configurations
+ * @returns {Array<JSX.Element>} Array of Route components
+ */
+function renderRoutes(routeConfig) {
+  return routeConfig.map((route) => (
+    <Route
+      key={route.path}
+      path={route.path}
+      element={route.element}
+    />
+  ));
+}
+
+export default App;
