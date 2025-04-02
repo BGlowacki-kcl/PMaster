@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import WaitlistDialog from './WaitlistDialog.jsx';
+import { useNavigate } from 'react-router-dom';
 
 function Navbar({ Home, Features, Pricing, AboutUs, Contact, showNotification }) {
   const [waitlist, setWaitlist] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false); // Track the state of the dropdown menu
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleScroll = (ref) => () => {
     ref.current.scrollIntoView({ behavior: 'smooth' });
@@ -39,9 +42,10 @@ function Navbar({ Home, Features, Pricing, AboutUs, Contact, showNotification })
         <button onClick={handleScroll(Contact)} className="p-2 hover:bg-secondarywood1 rounded-md">Contact</button>
       </div>
 
-      {/* Waitlist Button */}
-      <div className="relative hidden sm:block">
-        <button className="font-font2 bg-primarywood2/80 rounded-sm cursor-pointer hover:shadow hover:bg-primarywood2 p-2" onClick={showWaitlist}>Waitlist</button>
+      {/* Account Buttons */}
+      <div className="relative hidden sm:block space-x-10">
+        <button className="font-font2 bg-primarywood2/80 rounded-sm cursor-pointer hover:shadow hover:bg-primarywood2 p-2" onClick={() => navigate("/signin")}>Sign In</button>
+        <button className="font-font2 bg-primarywood2/80 rounded-sm cursor-pointer hover:shadow hover:bg-primarywood2 p-2" onClick={() => navigate("/signup")}>Sign Up</button>
       </div>
 
       {/* Hamburger Menu Button for Small Screens */}
@@ -59,7 +63,8 @@ function Navbar({ Home, Features, Pricing, AboutUs, Contact, showNotification })
           <button onClick={handleScroll(Pricing)} className="p-2 text-lg">Pricing</button>
           <button onClick={handleScroll(AboutUs)} className="p-2 text-lg">About us</button>
           <button onClick={handleScroll(Contact)} className="p-2 text-lg">Contact</button>
-          <button className="font-font2 bg-primarywood2/80 rounded-sm cursor-pointer hover:shadow hover:bg-primarywood2 p-2" onClick={showWaitlist}>Waitlist</button>
+          <button className="font-font2 bg-primarywood2/80 rounded-sm cursor-pointer hover:shadow hover:bg-primarywood2 p-2" onClick={showWaitlist}>Sign In</button>
+          <button className="font-font2 bg-primarywood2/80 rounded-sm cursor-pointer hover:shadow hover:bg-primarywood2 p-2" onClick={showWaitlist}>Sign Up</button>
         </div>
       )}
     </div>

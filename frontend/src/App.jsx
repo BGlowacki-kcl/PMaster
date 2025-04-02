@@ -8,6 +8,8 @@
 
 import { Route, Routes } from 'react-router-dom';
 import Landing from './pages/Landing';
+import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
 
 /**
  * Main application component that initializes routing and renders routes.
@@ -34,6 +36,8 @@ function App() {
 function defineRouteConfig() {
   return [
     { path: "/", element: <Landing /> },
+    { path: "/signin", element: <SignIn />},
+    { path: "/signup", element: <SignUp />},
   ]
 }
 
