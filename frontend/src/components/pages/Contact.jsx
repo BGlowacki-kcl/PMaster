@@ -1,6 +1,6 @@
 import React, { forwardRef, useState } from 'react'
 import sendEmail from '../../stores/email.store';
-import FormItem from '../landingPage/FormItem';
+import FormItem from '../landingPage/FormItem.jsx';
 import { useNotification } from '../../hooks/Notification.context';
 
 const Contact = forwardRef(({ ...props}, ref) => {
